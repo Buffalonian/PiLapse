@@ -18,7 +18,7 @@ My PREFERRED configuration:
 - SSHD (remote access)
 - Configure your WIFI SSID + PW and set STATIC IP (trust me, you'll love me later) to your Raspberry PI (in the GUI, much easier)
 - Open a terminal window and run the $>sudo raspi-config command, and set your default boot mode to command line.
---- The reason why I prefer this is to save on CPU cycles, so I can crunch images to video faster
+- -- The reason why I prefer this is to save on CPU cycles, so I can crunch images to video faster
 
 After you have validated you can remote connect to your Raspberry Pi with Putty for the SSHD client from Mac / PC / Linux, then its time to configure PiLapse.
 
