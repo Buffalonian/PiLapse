@@ -25,8 +25,9 @@ After you have validated you can remote connect to your Raspberry Pi with Putty 
 1. raspistill should be installed by default, because the camera module is a Raspberry Pi device.
 2. Make sure your timelapse.sh and manifest.sh scripts are executable by your local user
 
----- $>chmod u+rwx timelapse.sh (in the main directory)
----- $>chmod u+rwx images/manifest.sh (in the images directory)
+- $>chmod u+rwx timelapse.sh (in the main directory)
+
+- $>chmod u+rwx images/manifest.sh (in the images directory)
 
 
 
