@@ -29,5 +29,21 @@ After you have validated you can remote connect to your Raspberry Pi with Putty 
 
 - $>chmod u+rwx images/manifest.sh (in the images directory)
 
+crontab.txt contains two lines you need to place in your local user crontab.
+
+0 6 * * * /opt/PiLapse/timelapse.sh
+
+0 21 * * * /opt/PiLapse/images/manifest.sh
+
+The first one starts the timelapse process. The second runs after dust (12 hour image capture of the timelapse script) and then creates the video of that timelapse of the day. The video gets put into the video/ directory by date (yyyy-mm-dd) format. There is no reason to remove the .jpg images, because they get overwritten each day based on the timelapse.sh script that creates incremental files.
+
+The timelapse runs for 12 hours which is 12 hours x 60 minutes x 60 seconds to get you total timelapse duration. It takes a picture every 15 seconds. You can see the calcuations in the timelapse file and the switches that get triggered. If you Google Raspistill, you can see all the possibilities of configuration, but since this is my initial go at a yearly timelapse, I keep it simple.
+
+To Does:
+
+1. Backup images daily to Google Drive
+2. Upload timelapse.avi to Youtube.com each day with an API call
+
+Thanks
 
 
