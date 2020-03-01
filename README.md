@@ -39,6 +39,15 @@ The first one starts the timelapse process. The second runs after dust (12 hour 
 
 The timelapse runs for 12 hours which is 12 hours x 60 minutes x 60 seconds to get you total timelapse duration. It takes a picture every 15 seconds. You can see the calcuations in the timelapse file and the switches that get triggered. If you Google Raspistill, you can see all the possibilities of configuration, but since this is my initial go at a yearly timelapse, I keep it simple.
 
+USB Drives - if your SD card is to small, or you feel like offloading all the images / videos to take longer timelapses, you can use and mount a USB drive and use it as your storage device.
+
+Plug your USB drive into an avaliable USB port. 
+
+`$>ls -l /dev/disk/by-uuid/`
+
+
+
+
 To Does:
 
 1. Backup images daily to Google Drive
