@@ -25,15 +25,15 @@ After you have validated you can remote connect to your Raspberry Pi with Putty 
 1. raspistill should be installed by default, because the camera module is a Raspberry Pi device.
 2. Make sure your timelapse.sh and manifest.sh scripts are executable by your local user
 
-- $>chmod u+rwx timelapse.sh (in the main directory)
+`$>chmod u+rwx timelapse.sh` (in the main directory)
 
-- $>chmod u+rwx images/manifest.sh (in the images directory)
+`$>chmod u+rwx images/manifest.sh` (in the images directory)
 
 crontab.txt contains two lines you need to place in your local user crontab.
 
-0 6 * * * /opt/PiLapse/timelapse.sh
+`0 6 * * * /opt/PiLapse/timelapse.sh`
 
-0 21 * * * /opt/PiLapse/images/manifest.sh
+`0 21 * * * /opt/PiLapse/images/manifest.sh`
 
 The first one starts the timelapse process. The second runs after dust (12 hour image capture of the timelapse script) and then creates the video of that timelapse of the day. The video gets put into the video/ directory by date (yyyy-mm-dd) format. There is no reason to remove the .jpg images, because they get overwritten each day based on the timelapse.sh script that creates incremental files.
 
