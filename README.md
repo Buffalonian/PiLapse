@@ -46,9 +46,13 @@ Plug your USB drive into an avaliable USB port and run the following command.
 `$>ls -l /dev/disk/by-uuid/`
 
 `total 0`
+
 `lrwxrwxrwx 1 root root 15 Feb 29 16:51 6341-C9E5 -> ../../mmcblk0p1`
+
 `lrwxrwxrwx 1 root root 10 Mar  1 14:44 6C48-6310 -> ../../sda1`
+
 `lrwxrwxrwx 1 root root 15 Feb 29 16:51 80571af6-21c9-48a0-9df5-cffb60cf79af -> ../../mmcblk0p2`
+
 
 The `sda` generally points to the USB, but just make sure you only have one drive plugged in at a time.
 
@@ -76,6 +80,7 @@ If you run `df` (with the -h switch you'll get GBs instead of Bytes as measure o
 `/dev/root        14G  6.4G  7.0G  48% /`
 
 ...
+
 `/dev/sda1       116G   32K  116G   1% /media/usb`
 
 
