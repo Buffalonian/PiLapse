@@ -41,12 +41,41 @@ The timelapse runs for 12 hours which is 12 hours x 60 minutes x 60 seconds to g
 
 USB Drives - if your SD card is to small, or you feel like offloading all the images / videos to take longer timelapses, you can use and mount a USB drive and use it as your storage device.
 
-Plug your USB drive into an avaliable USB port. 
+Plug your USB drive into an avaliable USB port and run the following command.
 
 `$>ls -l /dev/disk/by-uuid/`
 
+`total 0`
+`lrwxrwxrwx 1 root root 15 Feb 29 16:51 6341-C9E5 -> ../../mmcblk0p1`
+`lrwxrwxrwx 1 root root 10 Mar  1 14:44 6C48-6310 -> ../../sda1`
+`lrwxrwxrwx 1 root root 15 Feb 29 16:51 80571af6-21c9-48a0-9df5-cffb60cf79af -> ../../mmcblk0p2`
 
+The `sda` generally points to the USB, but just make sure you only have one drive plugged in at a time.
 
+Create a USB mount point and make it accessible by the default pi user. 
+
+`$> sudo mkdir /media/usb`
+`$> sudo chown -R pi:pi /media/usb`
+`$> sudo mount /dev/sda1 /media/usb -o uid=pi,gid=pi`
+
+If you want to mount the USB drive after reboot, you'll have to edit the FSTAB 
+
+`$>sudo nano /etc/fstab`
+
+Add the following line to your FSTAB file - *note* the UUID will coorespond to the uuid from the probe above for the `sda1` mount.
+
+`UUID=18A9-9943 /media/usb vfat auto,nofail,noatime,users,rw,uid=pi,gid=pi 0 0`
+
+If you run `df` (with the -h switch you'll get GBs instead of Bytes as measure of drive size) 
+`$> df -h`
+`Filesystem      Size  Used Avail Use% Mounted on`
+`/dev/root        14G  6.4G  7.0G  48% /`
+...
+`/dev/sda1       116G   32K  116G   1% /media/usb`
+
+I used a 128GB USB drive, and you can see it here under the /media/usb mount point I setup.
+
+You'll have to change the `timelapse.sh` file and `manifest.sh` files to reference the new media USB mount point. I would even suggest to go as far as putting the `manifest.sh` file ON the USB drive and the `crontab` setup to point to this. Just makes easier porting.
 
 To Does:
 
