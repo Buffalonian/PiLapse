@@ -74,7 +74,9 @@ Add the following line to your FSTAB file - *note* the UUID will coorespond to t
 `UUID=18A9-9943 /media/usb vfat auto,nofail,noatime,users,rw,uid=pi,gid=pi 0 0`
 
 If you run `df` (with the -h switch you'll get GBs instead of Bytes as measure of drive size) 
+
 `$> df -h`
+
 `Filesystem      Size  Used Avail Use% Mounted on`
 
 `/dev/root        14G  6.4G  7.0G  48% /`
