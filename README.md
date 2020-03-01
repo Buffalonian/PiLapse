@@ -55,8 +55,11 @@ The `sda` generally points to the USB, but just make sure you only have one driv
 Create a USB mount point and make it accessible by the default pi user. 
 
 `$> sudo mkdir /media/usb`
+
 `$> sudo chown -R pi:pi /media/usb`
+
 `$> sudo mount /dev/sda1 /media/usb -o uid=pi,gid=pi`
+
 
 If you want to mount the USB drive after reboot, you'll have to edit the FSTAB 
 
@@ -69,9 +72,12 @@ Add the following line to your FSTAB file - *note* the UUID will coorespond to t
 If you run `df` (with the -h switch you'll get GBs instead of Bytes as measure of drive size) 
 `$> df -h`
 `Filesystem      Size  Used Avail Use% Mounted on`
+
 `/dev/root        14G  6.4G  7.0G  48% /`
+
 ...
 `/dev/sda1       116G   32K  116G   1% /media/usb`
+
 
 I used a 128GB USB drive, and you can see it here under the /media/usb mount point I setup.
 
