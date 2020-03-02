@@ -1,6 +1,7 @@
 Timelapse that runs at 6AM for 12 hours, then manifest creates list of JPG files and creates a video of it.
 -- no need to delete jpgs, because they will just be overwritten. .gitignore excludes them from project updates.
+Added backupimages to zip to USB drive
 
-0 6 * * * /opt/PiLapse/timelapse.sh
-0 21 * * * /opt/PiLapse/images/manifest.sh
-
+0 6 * * * /opt/PiLapse/timelapse.sh 2>&1
+0 20 * * * /opt/PiLapse/backupimages.sh 2>&1 
+0 21 * * * /opt/PiLapse/images/manifest.sh  2>&1

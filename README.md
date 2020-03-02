@@ -29,11 +29,14 @@ After you have validated you can remote connect to your Raspberry Pi with Putty 
 
 `$>chmod u+rwx images/manifest.sh` (in the images directory)
 
-crontab.txt contains two lines you need to place in your local user crontab.
+crontab.txt contains three lines you need to place in your local user crontab. Decided to add an images backup util.
 
-`0 6 * * * /opt/PiLapse/timelapse.sh`
+`0 6 * * * /opt/PiLapse/timelapse.sh 2>&1`
 
-`0 21 * * * /opt/PiLapse/images/manifest.sh`
+`0 20 * * * /opt/PiLapse/backupimages.sh 2>&1`
+
+`0 21 * * * /opt/PiLapse/images/manifest.sh  2>&1`
+
 
 The first one starts the timelapse process. The second runs after dust (12 hour image capture of the timelapse script) and then creates the video of that timelapse of the day. The video gets put into the video/ directory by date (yyyy-mm-dd) format. There is no reason to remove the .jpg images, because they get overwritten each day based on the timelapse.sh script that creates incremental files.
 
